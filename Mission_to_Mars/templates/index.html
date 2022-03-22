@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name ="viewport" content ="width=device-width", initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Mission to Mars</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="jumbotron text-center">
+          <h1>Mission to Mars</h1>
+          <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Scrape New Data</a></p>
+        </div>
+        <div class="row" id="mars-news">
+          <div class="col-md-12">
+              <h3>Latest Mars News</h3>
+                <h6>{{mars_info.news_title}}</h6>
+                    <p>{{mars_info.news_p}}</p>                                   
+          </div>
+        </div>
+        <div class ="row" id="mars-image">
+            <div class = "col-md-8">
+                <h3>Featured Mars Image</h3>
+                <img src = "{{mars_info.feature_image_url}}" style="max-width:100%; max-height: auto;" alt ="Mars Image">
+            </div>
+            <div class = "col-md-4">
+                <h4>Mars Facts</h4>
+                <p>{{mars_info.facts_html_table | safe}}</p>
+            </div>
+        </div>
+        <div class ="row" id="mars-hemispheres">
+            <div class = "col-md-12">
+                <h3><b><center>Mars Hemispheres</center></b></h3>
+                {% for item in mars_info.hemisphere_image_urls %}
+                    <div class = "col-md-3">
+                        <div class = "thumbnail">
+                            <img src = "{{item.img_url}}">
+                                <h4>{{item.title}}</h4>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+
+        </div>
+        </div>
+        </div>
+      </div>
+      <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+</html>
